@@ -22,17 +22,17 @@ class Program
         for (int i = 1; i <= k; i++)
         {
             int id = i;
-            new Thread(() => SinhDuLieu(id)).Start();
+            new Thread(() => Producer(id)).Start();
         }
 
         for (int i = 1; i <= h; i++)
         {
             int id = i;
-            new Thread(() => XuLyDuLieu(id)).Start();
+            new Thread(() => Consumer(id)).Start();
         }
     }
 
-    static void SinhDuLieu(int id)
+    static void Producer(int id)
     {
         while (true)
         {
@@ -52,7 +52,7 @@ class Program
         }
     }
 
-    static void XuLyDuLieu(int id)
+    static void Consumer(int id)
     {
         while (true)
         {
